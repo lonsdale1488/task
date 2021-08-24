@@ -7,12 +7,10 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "DetailCharacterEntity")
 class DetailCharacterEntity
-    constructor( id:Int, name:String?, description:String?, resourceURI:String?)
-    {
-        @PrimaryKey(autoGenerate = false)
-        var id: Int = id
-        var name: String? = name
-        var description: String? = description
-        @ColumnInfo(name = "resource_uri")
-        var resourceURI: String? = resourceURI
-    }
+constructor(
+    @PrimaryKey(autoGenerate = false) var id: Int,
+    var name: String?,
+    var description: String?,
+    @ColumnInfo(name = "resource_uri") var resourceURI: String?
+) {
+}

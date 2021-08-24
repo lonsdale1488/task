@@ -12,12 +12,12 @@ interface DetailCharacterDao {
     val all: List<DetailCharacterEntity>
 
     @Query("SELECT * FROM DetailCharacterEntity WHERE id = :id")
-    fun findByName(id: Int): DetailCharacterEntity?
+    fun findById(id: Int): DetailCharacterEntity?
 
     @Insert
     fun insert(mo: DetailCharacterEntity)
 
     @Query("UPDATE DetailCharacterEntity SET name=:name, description=:description, resource_uri=:resourceURI WHERE id = :id")
-    fun update(id: Int, name: String?, description:String?, resourceURI: String? )
+    fun update(id: Int, name: String?, description: String?, resourceURI: String?)
 
 }

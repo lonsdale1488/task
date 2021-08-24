@@ -16,9 +16,9 @@ class CharacterDatabaseManager(private val localDatabase: AppDatabase) {
         }
     }
 
-    fun getCharacterFromDatabase(): Character? {
+    fun getCharacterFromDatabase(): Character {
         val list = arrayListOf<Result>()
-        for (i in 0..listCharacter.size-1) {
+        for (i in 0..listCharacter.size - 1) {
             list.add(
                 Result(
                     listCharacter.get(i).id,
@@ -27,33 +27,29 @@ class CharacterDatabaseManager(private val localDatabase: AppDatabase) {
                 )
             )
         }
-        val results: List<Result>? = list
-        var character =  Character(
-            Data(  0, 0, 0, 0, results
+        val results: List<Result> = list
+        return Character(
+            Data(
+                0, 0, 0, 0, results
             )
         )
-        return character
     }
 
-    private fun addCharacterInDataBase(character: Character?)
-    {
+    private fun addCharacterInDataBase(character: Character?) {
         if (character == null) return
 
-        for (i in 0..character.data?.results?.size!!-1)
-        {
-            var res = character.data?.results!!.get(i)
+        for (i in 0..character.data?.results?.size!! - 1) {
+            val res = character.data?.results!!.get(i)
             localDatabase.characterDao().insert(CharacterEntity(res.id, res.name, res.description))
         }
     }
-    private fun updateCharacterInDataBase(character: Character?)
-    {
-        if (character == null)
-        {
+
+    private fun updateCharacterInDataBase(character: Character?) {
+        if (character == null) {
             return
         }
-        for (i in 0..character.data?.results?.size!!-1)
-        {
-            var res = character.data?.results!!.get(i)
+        for (i in 0..character.data?.results?.size!! - 1) {
+            val res = character.data?.results!!.get(i)
             localDatabase.characterDao().update(res.id, res.name, res.description)
         }
     }

@@ -6,28 +6,27 @@ import androidx.lifecycle.MutableLiveData
 import com.sersh.murashevtechnicaltask.data.Model
 import com.sersh.murashevtechnicaltask.data.model.DeteilCharacter
 
-class DetailedViewModel (private var uId:Int) {
+class DetailedViewModel(uId: Int) {
 
-   var name = ObservableField<String>()
-   var discription = ObservableField<String>()
-   var resourceURI = ObservableField<String>()
-   var uid = uId.toString()
-   private val LOG_TAG = "DetailedViewModel"
+    var name = ObservableField<String>()
+    var description = ObservableField<String>()
+    var resourceURI = ObservableField<String>()
+    var uid = uId.toString()
 
-   private var charaterResultLiveDataDeteil:  MutableLiveData<DeteilCharacter?>? = null
-   private val model = Model
+    private var characterResultLiveDataDetail: MutableLiveData<DeteilCharacter?>? = null
+    private val model = Model
 
     init {
-        charaterResultLiveDataDeteil = model.getCharacterDetail(uId)
-    }
-    fun getCharaterResultLiveData(): MutableLiveData<DeteilCharacter?>? {
-        return charaterResultLiveDataDeteil
+        characterResultLiveDataDetail = model.getCharacterDetail(uId)
     }
 
-    fun initData()
-    {
-        name.set(charaterResultLiveDataDeteil?.value?.data?.results?.get(0)?.name.toString())
-        discription.set(charaterResultLiveDataDeteil?.value?.data?.results?.get(0)?.description.toString())
-        resourceURI.set(charaterResultLiveDataDeteil?.value?.data?.results?.get(0)?.resourceURI.toString())
+    fun getCharaterResultLiveData(): MutableLiveData<DeteilCharacter?>? {
+        return characterResultLiveDataDetail
+    }
+
+    fun initData() {
+        name.set(characterResultLiveDataDetail?.value?.data?.results?.get(0)?.name.toString())
+        description.set(characterResultLiveDataDetail?.value?.data?.results?.get(0)?.description.toString())
+        resourceURI.set(characterResultLiveDataDetail?.value?.data?.results?.get(0)?.resourceURI.toString())
     }
 }

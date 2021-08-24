@@ -15,23 +15,22 @@ import com.sersh.murashevtechnicaltask.ui.adapter.RecyclerViewAdapter
 
 class ListFragment : Fragment() {
 
-    private val LOG_TAG = "ListFragment"
 
     private lateinit var mBinding: FragmentListBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         val viewModel = ListViewModel()
-        mBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_list, container, false);
+        mBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_list, container, false)
         mBinding.listViewModel = viewModel
         initRecyclerView(viewModel)
-        return mBinding.getRoot()
+        return mBinding.root
     }
 
     private fun initRecyclerView(viewModel: ListViewModel) {
-        mBinding.recyclerView.setLayoutManager(LinearLayoutManager(activity))
+        mBinding.recyclerView.layoutManager = LinearLayoutManager(activity)
         mBinding.recyclerView.addItemDecoration(
             DividerItemDecoration(
                 activity,
@@ -41,7 +40,7 @@ class ListFragment : Fragment() {
         viewModel.getCharaterResultLiveData()?.observe(viewLifecycleOwner, Observer {
             it.let {
                 val adapter = RecyclerViewAdapter(it.data?.results, activity)
-                mBinding.recyclerView.setAdapter(adapter)
+                mBinding.recyclerView.adapter = adapter
             }
         })
     }

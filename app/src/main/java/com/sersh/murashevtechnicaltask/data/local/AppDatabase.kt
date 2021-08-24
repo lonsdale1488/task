@@ -7,9 +7,13 @@ import com.sersh.murashevtechnicaltask.data.local.room.DetailCharacterDao
 import com.sersh.murashevtechnicaltask.data.model.CharacterEntity
 import com.sersh.murashevtechnicaltask.data.model.DetailCharacterEntity
 
-@Database(entities = [CharacterEntity::class, DetailCharacterEntity::class], version = 1,exportSchema = false)
+@Database(
+    entities = [CharacterEntity::class, DetailCharacterEntity::class],
+    version = 1,
+    exportSchema = false
+)
 
 abstract class AppDatabase : RoomDatabase() {
-    abstract fun characterDao (): CharacterDao
+    abstract fun characterDao(): CharacterDao
     abstract fun detailCharacterDao(): DetailCharacterDao
 }

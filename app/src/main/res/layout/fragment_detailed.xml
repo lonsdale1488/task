@@ -38,7 +38,7 @@
         <TextView
             android:id="@+id/discription"
             android:textColor="@color/colorAccent"
-            android:text="@{viewModel.discription}"
+            android:text="@{viewModel.description}"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"

@@ -1,8 +1,7 @@
 package com.sersh.murashevtechnicaltask.data.model
 
 
-
-data class ThumbnailId (
+data class ThumbnailId(
     var path: String? = null,
     var extension: String? = null
 )
@@ -11,43 +10,43 @@ data class ItemId(
     var resourceURI: String? = null,
     var name: String? = null,
     var type: String? = null
-    )
-
-data class ComicsId (
-    var available:Int = 0,
-    var collectionURI: String? = null,
-    var items: List<ItemId>? = null,
-    var returned:Int = 0
-    )
-
-data class SeriesId (
-    var available:Int = 0,
-    var collectionURI: String? = null,
-    var items: List<ItemId>? = null,
-    var returned:Int = 0
 )
 
-data class StoriesId (
-    var available:Int = 0,
+data class ComicsId(
+    var available: Int = 0,
     var collectionURI: String? = null,
     var items: List<ItemId>? = null,
-    var returned:Int = 0
+    var returned: Int = 0
 )
 
-data class EventsId (
-    var available:Int = 0,
+data class SeriesId(
+    var available: Int = 0,
+    var collectionURI: String? = null,
+    var items: List<ItemId>? = null,
+    var returned: Int = 0
+)
+
+data class StoriesId(
+    var available: Int = 0,
+    var collectionURI: String? = null,
+    var items: List<ItemId>? = null,
+    var returned: Int = 0
+)
+
+data class EventsId(
+    var available: Int = 0,
     var collectionURI: String? = null,
     var items: List<Any>? = null,
-    var returned:Int = 0
+    var returned: Int = 0
 )
 
-data class UrlId (
+data class UrlId(
     var type: String? = null,
     var url: String? = null
 )
 
-data class ResultId (
-    var id :Int = 0,
+data class ResultId(
+    var id: Int = 0,
     var name: String? = null,
     var description: String? = null,
 //    var thumbnail: ThumbnailId? = null,
@@ -59,7 +58,7 @@ data class ResultId (
     var urls: List<UrlId>? = null
 )
 
-data class DataId (
+data class DataId(
 //    var offset :Int = 0,
 //    var limit:Int = 0,
 //    var total:Int = 0,
@@ -67,7 +66,7 @@ data class DataId (
     var results: List<ResultId>? = null
 )
 
-data class DeteilCharacter (
+data class DeteilCharacter(
 //    var code :Int = 0,
 //    var status: String? = null,
 //    var copyright: String? = null,

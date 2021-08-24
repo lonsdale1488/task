@@ -15,5 +15,5 @@ interface CharacterDao {
     fun insert(mo: CharacterEntity)
 
     @Query("UPDATE CharacterEntity SET name=:name, description=:description WHERE id = :id")
-     fun update(id: Int, name: String?, description:String? )
+    fun update(id: Int, name: String?, description: String?)
 }

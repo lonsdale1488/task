@@ -1,4 +1,4 @@
-package com.sersh.murashevtechnicaltask.until
+package com.sersh.murashevtechnicaltask.util
 
 object Constant {
 
